@@ -16,14 +16,14 @@ class info_cast_controller extends Controller
         $user = CUser::where('email',$req->email)->where('password',$req->password)->first();
        
         if($user){
-            return $user;
+            //return $user;
             $api_token = Str::random(64);
             $token = new Token();
             $token->email = $user->email;
             $token->token = $api_token;
             $token->created_at = new DateTime();
             $token->save();
-            //return $token;
+            return $token;
             
         }
         return "No user found";
@@ -34,4 +34,19 @@ class info_cast_controller extends Controller
 
         return $products;
     }
+    public function gplist(){
+        $products =package::where('category','Gamers')->get();
+
+       return $products;
+   }
+   public function splist(){
+    $products =package::where('category','Student')->get();
+
+   return $products;
+   }
+   public function soplist(){
+    $products =package::where('category','Special offers')->get();
+
+   return $products;
+}
 }
