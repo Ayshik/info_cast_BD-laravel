@@ -8,6 +8,9 @@ use App\Models\Token;
 use Illuminate\Support\Str;
 use DateTime;
 use App\Models\package;
+use App\Models\requestpack;
+
+
 
 class info_cast_controller extends Controller
 {
@@ -22,6 +25,7 @@ class info_cast_controller extends Controller
             $token->email = $user->email;
             $token->token = $api_token;
             $token->created_at = new DateTime();
+            $token->type = $user->type;
             $token->save();
             return $token;
             
@@ -49,4 +53,28 @@ class info_cast_controller extends Controller
 
    return $products;
 }
+
+public function requestpack(Request $req){
+    
+    $requestpack = new requestpack();
+    $requestpack->name = $req->name;
+    $requestpack->company = $req->company;
+    $requestpack->email = $req->email;
+    $requestpack->phone = $req->phone;
+    $requestpack->country = $req->country;
+    $requestpack->address = $req->address;
+    $requestpack->city = $req->city;
+    $requestpack->state = $req->state;
+    $requestpack->postcode = $req->postcode;
+    $requestpack->packagename = $req->packagename;
+    $requestpack->packageprice = $req->packageprice;
+    $requestpack->totalprice = $req->totalprice;
+  
+    $requestpack->save();
+    if($requestpack->save()) return "Successful";
+}
+
+
+
+
 }

@@ -22,3 +22,4 @@ Route::get('/kids_packages',[info_cast_controller::class,'kplist']);
 Route::get('/Gamer_packages',[info_cast_controller::class,'gplist']);
 Route::get('/Student_packages',[info_cast_controller::class,'splist']);
 Route::get('/Special_offers',[info_cast_controller::class,'soplist']);
+Route::post('/Requestpack',[info_cast_controller::class,'requestpack']);
