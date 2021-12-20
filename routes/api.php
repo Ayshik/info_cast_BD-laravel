@@ -23,3 +23,8 @@ Route::get('/Gamer_packages',[info_cast_controller::class,'gplist']);
 Route::get('/Student_packages',[info_cast_controller::class,'splist']);
 Route::get('/Special_offers',[info_cast_controller::class,'soplist']);
 Route::post('/Requestpack',[info_cast_controller::class,'requestpack']);
+Route::get('/Customer_request',[info_cast_controller::class,'crequest']);
+Route::get('/Customer_paid',[info_cast_controller::class,'paid']);
+Route::get('/Customer_unpaid',[info_cast_controller::class,'unpaid']);
+Route::get('/Customer_connection',[info_cast_controller::class,'cconnection']);
+Route::put('/Update-status/{id}', [info_cast_controller::class, 'updatestatus']);

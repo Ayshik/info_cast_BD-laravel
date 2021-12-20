@@ -69,12 +69,51 @@ public function requestpack(Request $req){
     $requestpack->packagename = $req->packagename;
     $requestpack->packageprice = $req->packageprice;
     $requestpack->totalprice = $req->totalprice;
+    $requestpack->status = 'pending';
   
     $requestpack->save();
     if($requestpack->save()) return "Successful";
 }
 
 
+public function crequest(){
+    $products =requestpack::where('status','pending')->get();
 
+   return $products;
+}
 
+public function unpaid(){
+    $products =requestpack::where('status','unpaid')->get();
+
+   return $products;
+}
+
+public function paid(){
+    $products =requestpack::where('status','paid')->get();
+
+   return $products;
+}
+public function cconnection(){
+    $products =requestpack::where('status','!=','pending')->get();
+
+   return $products;
+}
+public function updatestatus($id){
+
+    $products = requestpack::find($id);
+if($products->lstatus=="Active")
+{
+
+    $products->lstatus = 'Inactive';
+   
+    $products->update();
+}
+else{
+
+    $products->lstatus = 'Active';
+   
+    $products->update();
+
+}
+}
 }
