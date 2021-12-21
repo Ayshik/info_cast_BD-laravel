@@ -75,6 +75,20 @@ public function requestpack(Request $req){
     if($requestpack->save()) return "Successful";
 }
 
+public function Addpackages(Request $req){
+    
+    $requestpack = new package();
+    $requestpack->name = $req->name;
+    $requestpack->speed = $req->speed;
+    $requestpack->pricinglock = $req->pricinglock;
+    $requestpack->price = $req->price;
+    $requestpack->category = $req->category;
+    
+  
+    $requestpack->save();
+    if($requestpack->save()) return "Successful";
+}
+
 
 public function crequest(){
     $products =requestpack::where('status','pending')->get();

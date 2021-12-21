@@ -35,3 +35,4 @@ Route::get('/All_connection',[info_cast_controller::class,'all']);
 Route::get('/Customer_request',[info_cast_controller::class,'crequest']);
 Route::put('/Update-request/{id}', [info_cast_controller::class, 'updatereq']);
 Route::delete('/Delete_request/{id}', [info_cast_controller::class, 'deletereq']);
+Route::post('/Addpackages',[info_cast_controller::class,'Addpackages']);
