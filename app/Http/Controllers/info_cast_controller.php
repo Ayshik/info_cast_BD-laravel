@@ -94,8 +94,8 @@ public function paid(){
    return $products;
 }
 public function cconnection(){
-    $products =requestpack::where('status','!=','pending')->get();
-
+    
+    $products =requestpack::where('lstatus','Active')->get();
    return $products;
 }
 public function updatestatus($id){
@@ -114,6 +114,78 @@ else{
    
     $products->update();
 
+    }
+                }
+
+                
+public function inactive(){
+    $products =requestpack::where('lstatus','Inactive')->get();
+
+   return $products;
+                            }
+
+
+public function updatepayment($id){
+
+    $products = requestpack::find($id);
+if($products->status=="paid")
+{
+
+    $products->lstatus = 'Inactive';
+    $products->status = 'unpaid';
+   
+    $products->update();
 }
-}
+else{
+
+    $products->lstatus = 'Active';
+    $products->status = 'paid';
+    $products->update();
+
+    }
+                }
+
+
+
+                
+                public function all(){
+                    $products =requestpack::where('status','!=','pending')->get();
+                
+                   return $products;
+                                            }
+                
+
+
+
+
+
+
+                                            public function updatereq($id){
+
+                                                $products = requestpack::find($id);
+                                            if($products->status=="pending")
+                                            {
+                                            
+                                               
+                                            
+                                                $products->lstatus = 'Active';
+                                                $products->status = 'paid';
+                                                $products->update();
+                                            
+                                                }
+                                                            }
+                                            
+
+
+     public function deletereq($id)
+    {
+     $products = requestpack::find($id);
+     if($products)
+     {
+     $products->delete();
+   
+    }
+
+    }
+
 }
