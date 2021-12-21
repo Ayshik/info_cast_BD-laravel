@@ -268,11 +268,36 @@ else{
 
 
 
+            public function edit_package($id)
+            {
+             $products = package::find($id);
+             if($products)
+             {
+             return $products;
+           
+            }
+        
+                }
 
 
 
+                public function updatepackage(Request $req,$id){
 
-
+                    $products = package::find($id);
+                if($products)
+                {
+                
+                   
+                   
+                    $products->name = $req->name;
+                    $products->speed = $req->speed;
+                    $products->pricinglock = $req->pricinglock;
+                    $products->price = $req->price;
+                    $products->category = $req->category;
+                    $products->update();
+                   
+                    }
+                                }
 
 
 

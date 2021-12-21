@@ -41,3 +41,5 @@ Route::get('/Package_details',[info_cast_controller::class,'package_details']);
 Route::delete('/Delete_package/{id}', [info_cast_controller::class, 'deletepackage']);
 Route::get('/Modarator_info',[info_cast_controller::class,'modarator_info']);
 Route::delete('/Delete_mod/{id}', [info_cast_controller::class, 'deletemod']);
+Route::get('/Edit_package/{id}',[info_cast_controller::class,'edit_package']);
+Route::put('/Update_packages/{id}', [info_cast_controller::class, 'updatepackage']);
