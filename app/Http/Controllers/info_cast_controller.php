@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use DateTime;
 use App\Models\package;
 use App\Models\requestpack;
-
+use App\Models\modarator;
 
 
 class info_cast_controller extends Controller
@@ -88,7 +88,19 @@ public function Addpackages(Request $req){
     $requestpack->save();
     if($requestpack->save()) return "Successful";
 }
-
+public function Addmodarator(Request $req){
+    
+    $addmod = new modarator();
+    $addmod->name = $req->name;
+    $addmod->email = $req->email;
+    $addmod->password = $req->password;
+    $addmod->address = $req->address;
+    $addmod->phone = $req->phone;
+    
+  
+    $addmod->save();
+    if($addmod->save()) return "Successful";
+}
 
 public function crequest(){
     $products =requestpack::where('status','pending')->get();
@@ -202,4 +214,66 @@ else{
 
     }
 
-}
+    public function package_details()
+    {
+        $products = package::all();
+
+
+       
+        return $products;
+        
+        
+    }
+
+    
+    public function deletepackage($id)
+    {
+     $products = package::find($id);
+     if($products)
+     {
+     $products->delete();
+   
+    }
+
+        }
+
+
+
+
+
+
+        public function modarator_info()
+        {
+            $products = modarator::all();
+    
+    
+           
+            return $products;
+            
+            
+        }
+    
+        
+        public function deletemod($id)
+        {
+         $products = modarator::find($id);
+         if($products)
+         {
+         $products->delete();
+       
+        }
+    
+            }
+    
+
+
+
+
+
+
+
+
+
+
+
+    }

@@ -36,3 +36,8 @@ Route::get('/Customer_request',[info_cast_controller::class,'crequest']);
 Route::put('/Update-request/{id}', [info_cast_controller::class, 'updatereq']);
 Route::delete('/Delete_request/{id}', [info_cast_controller::class, 'deletereq']);
 Route::post('/Addpackages',[info_cast_controller::class,'Addpackages']);
+Route::post('/Addmodarator',[info_cast_controller::class,'Addmodarator']);
+Route::get('/Package_details',[info_cast_controller::class,'package_details']);
+Route::delete('/Delete_package/{id}', [info_cast_controller::class, 'deletepackage']);
+Route::get('/Modarator_info',[info_cast_controller::class,'modarator_info']);
+Route::delete('/Delete_mod/{id}', [info_cast_controller::class, 'deletemod']);
