@@ -69,7 +69,7 @@ public function requestpack(Request $req){
     $requestpack->packagename = $req->packagename;
     $requestpack->packageprice = $req->packageprice;
     $requestpack->totalprice = $req->totalprice;
-    $requestpack->status = 'pending';
+    $requestpack->lstatus = $req->lstatus;
   
     $requestpack->save();
     if($requestpack->save()) return "Successful";
