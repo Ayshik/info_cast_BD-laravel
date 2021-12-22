@@ -105,6 +105,39 @@ public function Addmodarator(Request $req){
     if($addmod->save()) return "Successful";
 }
 
+
+
+public function User_payment(Request $req){
+    
+    $addmod = new payment_history();
+    $addmod->c_name = $req->c_name;
+    $addmod->c_email = $req->c_email;
+    $addmod->phone = $req->phone;
+    $addmod->payment_method = $req->payment_method;
+    $addmod->amount = $req->amount;
+    $addmod->month = $req->month;
+    $addmod->time = new DateTime();
+    
+  
+    $addmod->save();
+    if($addmod->save()) return "Successful";
+}
+
+
+public function User_RP(Request $req){
+    
+    $addmod = new payment_history();
+    $addmod->c_email = $req->c_email;
+    $addmod->subject = $req->subject;
+    $addmod->report = $req->report;
+    $addmod->time = new DateTime();
+    $addmod->status = $req->status;
+    
+  
+    $addmod->save();
+    if($addmod->save()) return "Successful";
+}
+
 public function crequest(){
     $products =requestpack::where('status','pending')->get();
 
