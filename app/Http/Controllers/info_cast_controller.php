@@ -10,6 +10,9 @@ use DateTime;
 use App\Models\package;
 use App\Models\requestpack;
 use App\Models\modarator;
+use App\Models\user;
+use App\Models\complainbox;
+use App\Models\payment_history;
 
 
 class info_cast_controller extends Controller
@@ -253,6 +256,33 @@ else{
             
         }
     
+
+        public function customer_info()
+        {
+            $products = user::all();
+    
+    
+           
+            return $products;
+            
+            
+        }
+
+        public function payment_history()
+        {
+            $products = payment_history::all();
+    
+    
+           
+            return $products;
+            
+            
+        }
+
+
+
+
+
         
         public function deletemod($id)
         {
@@ -300,5 +330,58 @@ else{
                                 }
 
 
+
+
+
+
+                                public function complainbox(){
+                                    $products =complainbox::where('status','unread')->get();
+                           
+                                   return $products;
+                               }
+
+
+
+
+
+                               public function read($id){
+
+                                $products = complainbox::find($id);
+                            
+                            
+                               
+                                $products->status = 'read';
+                               
+                                $products->update();
+                          
+                                            }
+
+
+
+
+                                            public function modarator_profile_update(Request $req,$id){
+
+                                                $products = modarator::find($id);
+                                            if($products)
+                                            {
+                                            
+                                               
+                                               
+                                                $products->name = $req->name;
+                                                $products->email = $req->email;
+                                                $products->password = $req->password;
+                                                $products->address = $req->address;
+                                                $products->phone = $req->phone;
+                                                $products->update();
+                                               
+                                                }
+                                                            }
+
+
+                                                            public function modarator_profile($id){
+                                                                $products = modarator::find($id);
+                                                            // $products = modarator::where('email',$id)->get();
+                                                               return $products;
+                                                                                        }
 
     }

@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class user extends Model
+class complainbox extends Model
 {
     use HasFactory;
-    protected $table="user";
+    protected $table="complainbox";
     public $timestamps= false;
 }

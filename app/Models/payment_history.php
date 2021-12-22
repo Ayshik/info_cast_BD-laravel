@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class user extends Model
+class payment_history extends Model
 {
     use HasFactory;
-    protected $table="user";
+    protected $table="payment_history";
     public $timestamps= false;
+
 }
