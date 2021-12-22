@@ -50,4 +50,4 @@ Route::get('/Payment_History',[info_cast_controller::class,'payment_history']);
 Route::get('/Modarator_profile/{id}',[info_cast_controller::class,'modarator_profile']);
 Route::put('/Update_mod_profile/{id}', [info_cast_controller::class, 'modarator_profile_update']);
 Route::post('/User_payment',[info_cast_controller::class,'User_payment']);
-Route::post('/User_RP',[info_cast_controller::class,'User_RP']);
+Route::post('/User_RP',[info_cast_controller::class,'user_RP']);
