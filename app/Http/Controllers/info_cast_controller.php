@@ -394,7 +394,7 @@ else{
 
                                             public function modarator_profile_update(Request $req,$id){
 
-                                                $products = modarator::find($id);
+                                                $products = modarator::where('email',$id)->first();
                                             if($products)
                                             {
                                             
@@ -412,9 +412,11 @@ else{
 
 
                                                             public function modarator_profile($id){
-                                                                $products = modarator::find($id);
-                                                            // $products = modarator::where('email',$id)->get();
-                                                               return $products;
+                                                                // $products = modarator::find($id);
+                                                                // return response()->json(['status' => 200, 'posts' => $products]);
+        
+                                                            $products = modarator::where('email',$id)->first();
+                                                           return $products;
                                                                                         }
 
     }
