@@ -419,4 +419,48 @@ else{
                                                            return $products;
                                                                                         }
 
-    }
+    
+    
+    
+                                                                                        public function getuser(Request $req,$id){
+
+                                                                                            $products = requestpack::find($id);
+                                                                                            $products->status ='paid';
+                                                                                            $products->lstatus ='Active';
+                                                                                            $products->update();
+
+                                                                                        if($products)
+                                                                                        {
+                                                                                        
+                                                                                           
+                                                                                            $adduse = new user();
+                                                                                            $adduse->id = $products->id;
+                                                                                            $adduse->name = $products->name;
+                                                                                        $adduse->company = $products->company;
+                                                                                        $adduse->email = $products->email;
+                                                                                        $adduse->phone = $products->phone;
+                                                                                        $adduse->country = $products->country;
+                                                                                        $adduse->address = $products->address;
+                                                                                        $adduse->city = $products->city;
+                                                                                        $adduse->state = $products->state;
+                                                                                        $adduse->postcode = $products->postcode;
+                                                                                        $adduse->password = '12345';
+                                                                                            $adduse->save();
+
+                                                                                            if($adduse->save()) return "Successful";
+                                                                                           
+                                                                                            }
+                                                                                                        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }

@@ -51,3 +51,4 @@ Route::get('/Modarator_profile/{id}',[info_cast_controller::class,'modarator_pro
 Route::put('/Update_mod_profile/{id}', [info_cast_controller::class, 'modarator_profile_update']);
 Route::post('/User_payment',[info_cast_controller::class,'User_payment']);
 Route::post('/User_RP',[info_cast_controller::class,'user_RP']);
+Route::get('/getuser/{id}',[info_cast_controller::class,'getuser']);
