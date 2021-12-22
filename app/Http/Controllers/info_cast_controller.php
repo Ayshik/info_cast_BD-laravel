@@ -126,7 +126,7 @@ public function User_payment(Request $req){
 
 public function User_RP(Request $req){
     
-    $addmod = new payment_history();
+    $addmod = new complainbox();
     $addmod->c_email = $req->c_email;
     $addmod->subject = $req->subject;
     $addmod->report = $req->report;
