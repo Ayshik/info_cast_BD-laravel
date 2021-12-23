@@ -419,4 +419,45 @@ else{
                                                            return $products;
                                                                                         }
 
-    }
+                                                                                        public function User_profile_update(Request $req,$id){
+
+                                                                                            $products = User::where('email',$id)->first();
+                                                                                        if($products)
+                                                                                        {
+                                                                                        
+                                                                                           
+                                                                                           
+                                                                                            $products->name = $req->name;
+                                                                                            $products->email = $req->email;
+                                                                                            $products->password = $req->password;
+                                                                                            $products->address = $req->address;
+                                                                                            $products->phone = $req->phone;
+                                                                                            $products->update();
+                                                                                           
+                                                                                            }
+                                                                                                        }
+                                            
+                                            
+                                                                                                        public function User_profile($id){
+                                                                                                            // $products = modarator::find($id);
+                                                                                                            // return response()->json(['status' => 200, 'posts' => $products]);
+                                                    
+                                                                                                        $products = User::where('email',$id)->first();
+                                                                                                       return $products;
+                                                                                                                                    }
+
+
+  
+                                                                              public function User_payment_history($id){
+
+                                                           $products = payment_history::where('c_email',$id)->get();
+                                                        return $products;
+                                                        
+                                                        }
+  
+  
+  
+  
+  
+  
+         }
