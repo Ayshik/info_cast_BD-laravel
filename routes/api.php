@@ -54,3 +54,5 @@ Route::post('/User_RP',[info_cast_controller::class,'User_RP']);
 Route::get('/User_profile/{id}',[info_cast_controller::class,'User_profile']);
 Route::put('/Update_user_profile/{id}', [info_cast_controller::class, 'User_profile_update']);
 Route::get('/User_payment_History/{id}',[info_cast_controller::class,'User_payment_history']);
+Route::post('/User_RP',[info_cast_controller::class,'user_RP']);
+Route::get('/getuser/{id}',[info_cast_controller::class,'getuser']);

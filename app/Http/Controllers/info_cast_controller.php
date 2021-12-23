@@ -124,7 +124,7 @@ public function User_payment(Request $req){
 }
 
 
-public function User_RP(Request $req){
+public function user_RP(Request $req){
     
     $addmod = new complainbox();
     $addmod->c_email = $req->c_email;
@@ -422,8 +422,10 @@ else{
                                                                                         public function User_profile_update(Request $req,$id){
 
                                                                                             $products = User::where('email',$id)->first();
-                                                                                        if($products)
-                                                                                        {
+    
+    
+    
+                                                                                     
                                                                                         
                                                                                            
                                                                                            
@@ -435,9 +437,9 @@ else{
                                                                                             $products->update();
                                                                                            
                                                                                             }
-                                                                                                        }
+                                                                                                        
                                             
-                                            
+                                                                                        
                                                                                                         public function User_profile($id){
                                                                                                             // $products = modarator::find($id);
                                                                                                             // return response()->json(['status' => 200, 'posts' => $products]);
@@ -445,7 +447,7 @@ else{
                                                                                                         $products = User::where('email',$id)->first();
                                                                                                        return $products;
                                                                                                                                     }
-
+                                                                                                                                
 
   
                                                                               public function User_payment_history($id){
@@ -460,4 +462,45 @@ else{
   
   
   
-         }
+           
+         
+         public function getuser(Request $req,$id){
+
+            $products = requestpack::find($id);
+            $products->status ='paid';
+            $products->lstatus ='Active';
+            $products->update();
+
+        if($products)
+        {
+                                                                                            $adduse = new user();
+                                                                                            $adduse->id = $products->id;
+                                                                                            $adduse->name = $products->name;
+                                                                                        $adduse->company = $products->company;
+                                                                                        $adduse->email = $products->email;
+                                                                                        $adduse->phone = $products->phone;
+                                                                                        $adduse->country = $products->country;
+                                                                                        $adduse->address = $products->address;
+                                                                                        $adduse->city = $products->city;
+                                                                                        $adduse->state = $products->state;
+                                                                                        $adduse->postcode = $products->postcode;
+                                                                                        $adduse->password = '12345';
+                                                                                            $adduse->save();
+
+                                                                                            if($adduse->save()) return "Successful";
+                                                                                           
+                                                                                            }
+                                                                                                        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
