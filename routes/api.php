@@ -56,3 +56,4 @@ Route::put('/Update_user_profile/{id}', [info_cast_controller::class, 'User_prof
 Route::get('/User_payment_History/{id}',[info_cast_controller::class,'User_payment_history']);
 Route::post('/User_RP',[info_cast_controller::class,'user_RP']);
 Route::get('/getuser/{id}',[info_cast_controller::class,'getuser']);
+Route::get('/Package_count',[info_cast_controller::class,'totalpackage']);

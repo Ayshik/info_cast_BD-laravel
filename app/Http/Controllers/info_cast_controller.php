@@ -14,6 +14,7 @@ use App\Models\payment_history;
 use App\Models\login;
 
 
+
 class info_cast_controller extends Controller {
     public function login(Request $req) {
         // return Str::random(64);
@@ -500,6 +501,12 @@ class info_cast_controller extends Controller {
 
 
 
+ public function totalpackage() {
+      
+
+    $count = Package::count();
+        return $count;
+    }
 
 
 
